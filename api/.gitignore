@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Dependências do Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Produção
+dist/
+build/
+
+# Teste de cobertura
+coverage/
+
+# Sistema operacional específico
+*.swp
+*.swo
+
+# Ambiente local
+.env
+.env.local
+.env.*.local
+.env.test.local
+.env.production.local
+
+# Cache do npm
+.npm
+
+# Cache do yarn
+.yarn
+.pnp.*
