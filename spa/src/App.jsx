@@ -9,6 +9,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { Form } from './ContactForm';
 import Protected from './ProtectedComponent';
+import './index.css';
 const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,49 +18,49 @@ const App = () => {
 
   return (
     <AuthProvider>
-      <main>
         <Header>
           <NavBar />
           <HeroSection />
         </Header>
-        <MainSection />
-        <Protected>
-          <TaskList />
-        </Protected>
-        <GoodThingsSection />
-        <Form.Root>
-          <Form.Avatar />
-          <Form.Title />
-          <form className="contact-form__form" onSubmit={handleSubmit}>
-            <Form.InputGroup
-              label="Your name"
-              type="text"
-              placeholder="type your name here..."
-              required
-            />
-            <div className="contact-form__input-group contact-form__input-group--split">
+        <main>
+          <MainSection />
+          <Protected>
+            <TaskList />
+          </Protected>
+          <GoodThingsSection />
+          <Form.Root>
+            <Form.Avatar />
+            <Form.Title />
+            <form className="contact-form__form" onSubmit={handleSubmit}>
               <Form.InputGroup
-                label="Email*"
-                type="email"
-                placeholder="example@example.com"
+                label="Your name"
+                type="text"
+                placeholder="type your name here..."
                 required
               />
-              <Form.InputGroup
-                label="Phone*"
-                type="tel"
-                placeholder="( ) ____-____"
+              <div className="contact-form__input-group contact-form__input-group--split">
+                <Form.InputGroup
+                  label="Email*"
+                  type="email"
+                  placeholder="example@example.com"
+                  required
+                />
+                <Form.InputGroup
+                  label="Phone*"
+                  type="tel"
+                  placeholder="( ) ____-____"
+                  required
+                />
+              </div>
+              <Form.Textarea
+                placeholder="Type what you want to say to us"
                 required
               />
-            </div>
-            <Form.Textarea
-              placeholder="Type what you want to say to us"
-              required
-            />
-            <Form.SubmitButton>SEND NOW</Form.SubmitButton>
-          </form>
-        </Form.Root>
+              <Form.SubmitButton>SEND NOW</Form.SubmitButton>
+            </form>
+          </Form.Root>
+        </main>
         <Footer />
-      </main>
     </AuthProvider>
   );
 };
