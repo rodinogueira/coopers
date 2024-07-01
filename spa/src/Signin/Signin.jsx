@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signin } from '../services/user';
 import Cookies from 'js-cookie';
 import logo from '../assets/image.png';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const Signin = ({ onClose, onSubmit }) => {
@@ -71,6 +72,11 @@ const Signin = ({ onClose, onSubmit }) => {
       </form>
     </div>
   );
+};
+
+Signin.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Signin;

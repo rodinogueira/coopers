@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 export const ContactFormRoot = ({ children }) => {
 
@@ -8,4 +9,8 @@ export const ContactFormRoot = ({ children }) => {
         {children}
     </div>
   );
+};
+
+ContactFormRoot.propTypes = {
+  children: PropTypes.node.isRequired,
 };

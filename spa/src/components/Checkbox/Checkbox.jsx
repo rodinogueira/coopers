@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const Checkbox = ({ checked, onChange, done }) => {
@@ -16,6 +17,12 @@ const Checkbox = ({ checked, onChange, done }) => {
       className={`custom-checkbox ${done ? 'custom-checkbox--done' : 'custom-checkbox--todo'}`}
     />
   );
+};
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  done: PropTypes.bool.isRequired,
 };
 
 export { Checkbox };

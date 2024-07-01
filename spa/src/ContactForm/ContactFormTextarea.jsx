@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 export const ContactFormTextarea = ({ placeholder, required }) => (
   <div className='contact-form__input-group'>
     <label className='contact-form__label'>Message*</label>
@@ -8,3 +11,8 @@ export const ContactFormTextarea = ({ placeholder, required }) => (
     ></textarea>
   </div>
 );
+
+ContactFormTextarea.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  required: PropTypes.bool.isRequired,
+};

@@ -1,3 +1,4 @@
+import React from 'react';
 import avatarImage from '../assets/avatar.png';
 import grafismoBG from '../assets/grafismo.png';
 

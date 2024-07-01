@@ -1,4 +1,5 @@
 import iconImage from '../assets/icon-mail.png';
+import React from 'react';
 
 export const ContactFormTitle = () => (
   <div className='contact-form__title-container'>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { userLogged } from '../services/user';
 import { signin } from '../services/user';
 import Cookies from 'js-cookie';
@@ -9,30 +10,22 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-export const AuthProvider = ({ children, initialUser }) => {
-  const [user, setUser] = useState(initialUser);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null); // Inicie com null para indicar estado inicial desconhecido ou vazio
   
   async function getUserLogged() {
     try {
       const userResponse = await userLogged();
       setUser(userResponse.data);
     } catch (error) {
-      console.log('Erro ao obter usuário logado:', error);
-      setUser(null);
+      console.error('Erro ao obter usuário logado:', error);
+      setUser(null); // Defina como null em caso de erro
     }
   }
 
   useEffect(() => {
-    validateToken();
     getUserLogged();
   }, []);
-
-  function validateToken() {
-    const token = Cookies.get('token');
-    // Implemente a lógica necessária para validar o token
-    // Se o token não for válido, pode redirecionar o usuário para o login
-    // Por exemplo: if (!token) history.push('/signin');
-  }
 
   const login = async (formData) => {
     try {
@@ -40,14 +33,14 @@ export const AuthProvider = ({ children, initialUser }) => {
       Cookies.set('token', token.data, { expires: 1 });
       getUserLogged();
     } catch (error) {
-      console.log('Erro ao fazer login:', error.message);
+      console.error('Erro ao fazer login:', error.message);
       throw error;
     }
   };
 
   const logout = () => {
     Cookies.remove('token');
-    setUser(null);
+    setUser(null); // Limpa o estado do usuário ao fazer logout
   };
 
   const authContextValue = {
@@ -57,4 +50,8 @@ export const AuthProvider = ({ children, initialUser }) => {
   };
 
   return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>;
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

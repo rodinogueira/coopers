@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { Checkbox } from '../components/Checkbox/Checkbox';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const Task = ({ id, text, done, index, moveTask, updateTask, toggleTask, deleteTask }) => {
@@ -94,6 +95,17 @@ const Task = ({ id, text, done, index, moveTask, updateTask, toggleTask, deleteT
       </a>
     </div>
   );
+};
+
+Task.propTypes = {
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  done: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
+  moveTask: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  toggleTask: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 export default Task;

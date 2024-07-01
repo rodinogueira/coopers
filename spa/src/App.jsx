@@ -55,7 +55,7 @@ const App = () => {
               placeholder='Type what you want to say to us'
               required
             />
-            <Form.SubmitButton text='SEND NOW' />
+            <Form.SubmitButton>SEND NOW</Form.SubmitButton>
           </form>
         </Form.Root>
         <Footer />

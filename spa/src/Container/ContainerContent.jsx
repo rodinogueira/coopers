@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const ContainerContent = ({ children, tasks, onDrop, onDragOver, onClearTasks, updateTask, deleteTask }) => {
   return (
@@ -8,4 +9,14 @@ export const ContainerContent = ({ children, tasks, onDrop, onDragOver, onClearT
       )}
     </div>
   );
+};
+
+ContainerContent.propTypes = {
+  children: PropTypes.node,
+  tasks: PropTypes.arrayOf(PropTypes.object),
+  onDrop: PropTypes.func,
+  onDragOver: PropTypes.func,
+  onClearTasks: PropTypes.func,
+  updateTask: PropTypes.func,
+  deleteTask: PropTypes.func,
 };
