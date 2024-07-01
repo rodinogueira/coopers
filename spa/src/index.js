@@ -12,7 +12,7 @@ root.render(
     <DndProvider backend={HTML5Backend}>
       <App />
     </DndProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();

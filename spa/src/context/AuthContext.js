@@ -12,7 +12,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Inicie com null para indicar estado inicial desconhecido ou vazio
-  
+
   async function getUserLogged() {
     try {
       const userResponse = await userLogged();
@@ -49,7 +49,11 @@ export const AuthProvider = ({ children }) => {
     logout,
   };
 
-  return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authContextValue}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 AuthProvider.propTypes = {
