@@ -12,21 +12,20 @@ import Cookies from 'js-cookie';
 import './index.css';
 
 const validateToken = () => {
-  const token = Cookies.get('token'); // Obtém o token do cookie 'token'
-  return token ? true : false; // Retorna true se o token existir, false caso contrário
+  const token = Cookies.get('token');
+  return token ? true : false;
 };
 
 const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica de envio do formulário aqui
   };
 
   useEffect(() => {
     const tokenValid = validateToken();
 
     if (!tokenValid) {
-      console.log('Token inválido ou não encontrado.'); // Apenas um exemplo, você pode lidar com isso como preferir
+      console.log('Token inválido ou não encontrado.');
     }
   }, []);
 
