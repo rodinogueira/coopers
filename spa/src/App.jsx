@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from "react";
 import { AuthProvider } from './context/AuthContext';
 import NavBar from './components/NavBar/NavBar';
 import HeroSection from './HeroSection/HeroSection';
@@ -8,13 +8,27 @@ import GoodThingsSection from './GoodThingsSection/GoodThingsSection';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { Form } from './ContactForm';
-import Protected from './ProtectedComponent';
+import Cookies from "js-cookie";
 import './index.css';
+
+const validateToken = () => {
+  const token = Cookies.get('token'); // Obtém o token do cookie 'token'
+  return token ? true : false; // Retorna true se o token existir, false caso contrário
+};
+
 const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Lógica de envio do formulário aqui
   };
+
+  useEffect(() => {
+    const tokenValid = validateToken();
+
+    if (!tokenValid) {
+      console.log('Token inválido ou não encontrado.'); // Apenas um exemplo, você pode lidar com isso como preferir
+    }
+  }, []);
 
   return (
     <AuthProvider>
@@ -24,9 +38,7 @@ const App = () => {
         </Header>
         <main>
           <MainSection />
-          <Protected>
             <TaskList />
-          </Protected>
           <GoodThingsSection />
           <Form.Root>
             <Form.Avatar />
