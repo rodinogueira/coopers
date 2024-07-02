@@ -43,4 +43,4 @@ Este endpoint permite registrar um novo usuário na aplicação. O corpo da requ
 
 ## Acessar a Aplicação coopers
 
-teste-coopers.netlify.app
+[teste-coopers.netlify.app](teste-coopers.netlify.app)
