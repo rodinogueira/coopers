@@ -40,3 +40,7 @@ Código de Status HTTP:
 201 Created - Indica que o usuário foi criado com sucesso.
 
 Este endpoint permite registrar um novo usuário na aplicação. O corpo da requisição deve conter o nome (name), email (email) e senha (password) do usuário a ser registrado. Após a criação bem-sucedida, a resposta incluirá os detalhes do usuário recém-criado, incluindo um _id único e a data de criação (createdAt).
+
+## Acessar a Aplicação coopers
+
+teste-coopers.netlify.app
