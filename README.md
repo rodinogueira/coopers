@@ -1,30 +1,36 @@
 # COOPERS
 
-Criar um Novo Usuário
-Para criar um novo usuário na aplicação, envie uma requisição POST para o endpoint /signup. Utilizando Postman, Insomnia
+## Criar um Novo Usuário
+
+É necessario criar um novo usuário na aplicação, envie uma requisição POST para o endpoint /signup. Utilizando Postman, Insomnia
 
 Endpoint:
 
-POST localhost:5002/signup
-Corpo da Requisição (JSON):
+## POST localhost:5002/signup
 
+localhost:5002/signup
+
+Corpo da Requisição: (JSON)
+
+```
 {
     "name": "Rodrigo Nogueira",
     "email": "rdg6design@gmail.com",
     "password": "456123"
 }
+```
 
-ou
+Corpo da Requisição: body > raw
 
-body > raw
-
+```
 {
     "name": "John Doe",
     "email": "john.doe@gmail.com",
     "password": "456123"
 }
-
+```
 ## Retorno
+```
 
 {
     "name": "Rodrigo Nogueira",
@@ -34,13 +40,18 @@ body > raw
     "_id": "66845ddf829fa2496a01146f",
     "__v": 0
 }
+```
 
-Código de Status HTTP:
+## Código de Status HTTP:
 
 201 Created - Indica que o usuário foi criado com sucesso.
 
 Este endpoint permite registrar um novo usuário na aplicação. O corpo da requisição deve conter o nome (name), email (email) e senha (password) do usuário a ser registrado. Após a criação bem-sucedida, a resposta incluirá os detalhes do usuário recém-criado, incluindo um _id único e a data de criação (createdAt).
 
-## Acessar a Aplicação coopers
+### Acessar a Aplicação coopers netlify
 
-[teste-coopers.netlify.app](teste-coopers.netlify.app)
+[coopers netlify](https://teste-coopers.netlify.app)
+
+### Acessar a Aplicação coopers aws
+
+[coopers aws](http://ec2-54-89-143-244.compute-1.amazonaws.com)
